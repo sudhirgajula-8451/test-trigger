@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  
+  workflow_dispatch:
 
 jobs:
 
@@ -14,11 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Send greeting
+      run: echo "Hello ${{ github.event.inputs.name }}"
       
     - name: Docker meta
       id: meta
