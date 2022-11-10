@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     branches:
     - main
+    - featuure*
     # Inputs the workflow accepts.
  
 
